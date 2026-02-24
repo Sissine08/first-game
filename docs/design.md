@@ -2,39 +2,35 @@
 
 ## Elevator Pitch
 
-*In 1 sentence: What is this game? Who plays it? Why now?*
-
-[TO BE DEFINED — NOD on engine first, then we fill this]
+An endless runner where survival is the only victory. Jump to dodge obstacles. Score based on distance. One mistake = game over. Simple to learn, hard to master. Perfect for 30-second play sessions.
 
 ---
 
 ## Core Pillars
 
-1. **Pillar 1:** [e.g., "Fast-paced reflex gameplay"]
-2. **Pillar 2:** [e.g., "Minimalist aesthetic, maximal depth"]
-3. **Pillar 3:** [e.g., "30-second sessions, infinite mastery"]
+1. **Pillar 1:** Instant play — no loading, no tutorials, just jump
+2. **Pillar 2:** One input — spacebar/tap to jump, that's it
+3. **Pillar 3:** Infinite escalation — speed increases, obstacles get harder
 
 ---
 
 ## Core Loop
 
 ```
-[Player Action] → [Game Response] → [Reward/Consequence] → [Loop]
+Auto-run → Obstacle approaches → Player jumps → Dodge successful → Score increases → Speed increases → Repeat → Collision → Game Over → Restart
 ```
-
-*Example (platformer): Run → Jump over obstacle → Score/coin → Speed increases → Repeat*
 
 ---
 
 ## Win Condition
 
-*How does the player win? Or is it endless/survival?*
+There is no win. Only survival. High score = bragging rights.
 
 ---
 
 ## Lose Condition
 
-*How does the player lose? What creates tension?*
+Collide with any obstacle = instant game over. No health, no continues. Brutal but fair.
 
 ---
 
@@ -42,17 +38,19 @@
 
 | Mechanic | Description | Risk/Reward |
 |----------|-------------|-------------|
-| [e.g., Double-jump] | [Brief description] | [Tradeoff] |
-| | | |
-| | | |
+| Single Jump | Press space to jump | Timing is everything |
+| Auto-scroll | World moves, player stays | No stopping, constant pressure |
+| Score = Distance | 10 points per second survived | Longer = harder = more impressive |
+| Speed ramp | Increases over time | Eventually, reflex limits reached |
+| Instant restart | Space to retry | No friction, just one more try |
 
 ---
 
 ## Art Direction
 
-**Style:** [Pixel art / Low-poly 3D / Vector / Photorealistic]
-**Palette:** [Color scheme]
-**Reference:** [Specific games/films]
+**Style:** Minimalist geometric
+**Palette:** Dark background (#1a1a26), neon player (#33cc66), red obstacles (#e64c33), gray ground (#505058)
+**Reference:** Super Hexagon, Geometry Dash, Canabalt
 
 ---
 

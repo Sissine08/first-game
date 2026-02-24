@@ -52,18 +52,20 @@ first-game/
 
 ---
 
-## Genre Decision — NEXT
+## Genre: ENDLESS RUNNER — LOCKED ✅
 
-Now that engine is locked, we need the **core mechanic**. NOD one:
+**Why endless runner:**
+- 30-second play sessions = Lyft driver friendly
+- One input (jump) = zero learning curve
+- High score = natural viral/share mechanic
+- Fastest path to "fun" — you feel it immediately or pivot
 
-**A) PLATFORMER** — Jump, run, simple levels. Classic, proven, fast to prototype.  
-**B) PUZZLE** — One mechanic, deep interactions. Brain teaser, high retention.  
-**C) ENDLESS RUNNER** — Auto-scroll, dodge obstacles. Mobile-friendly, arcade feel.  
-**D) NARRATIVE/CHOICE** — Story-driven, dialogue choices. Leverages your novelist skill.
-
-**My recommendation: A or C.** Both are "feel" games — you know in 5 seconds if they're fun. No art required for prototypes.
-
-**NOD A/B/C/D. Then we build the first scene.**
+**Current Prototype:** `prototypes/prototype_02.tscn`
+- Auto-scroll world
+- Jump to dodge red obstacles
+- Score based on survival time
+- Game over on collision
+- Space to restart
 
 ---
 
