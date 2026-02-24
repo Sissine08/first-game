@@ -1,0 +1,188 @@
+[gd_scene load_steps=8 format=3 uid="uid://d1234567890abcdef"]
+
+[ext_resource type="Script" path="res://src/player.gd" id="1_player"]
+[ext_resource type="Script" path="res://src/obstacle_spawner.gd" id="2_spawner"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_player"]
+size = Vector2(50, 50)
+
+[sub_resource type="Gradient" id="Gradient_jump"]
+colors = PackedColorArray(0.2, 0.8, 0.4, 1, 0.2, 0.8, 0.4, 0)
+
+[sub_resource type="Gradient" id="Gradient_land"]
+colors = PackedColorArray(0.8, 0.8, 0.8, 1, 0.8, 0.8, 0.8, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
+size = Vector2(1280, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_obstacle"]
+size = Vector2(60, 80)
+
+[node name="Game" type="Node2D"]
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0.08, 0.08, 0.12, 1)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0)
+
+[node name="Cityscape" type="ColorRect" parent="ParallaxBackground/ParallaxLayer"]
+offset_left = -200.0
+offset_top = 300.0
+offset_right = 1500.0
+offset_bottom = 600.0
+color = Color(0.15, 0.15, 0.2, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(640, 600)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+shape = SubResource("RectangleShape2D_ground")
+
+[node name="ColorRect" type="ColorRect" parent="Ground"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = -20.0
+offset_right = 640.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.25, 0.25, 0.3, 1)
+
+[node name="Player" type="CharacterBody2D" parent="." groups=["player"]]
+position = Vector2(150, 500)
+script = ExtResource("1_player")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_player")
+
+[node name="ColorRect" type="ColorRect" parent="Player"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2, 0.9, 0.5, 1)
+
+[node name="JumpParticles" type="CPUParticles2D" parent="Player"]
+emitting = false
+amount = 16
+lifetime = 0.4
+one_shot = true
+explosiveness = 0.8
+direction = Vector2(0, 1)
+spread = 60.0
+initial_velocity_min = 50.0
+initial_velocity_max = 150.0
+scale_amount_min = 3.0
+scale_amount_max = 6.0
+color_ramp = SubResource("Gradient_jump")
+
+[node name="LandParticles" type="CPUParticles2D" parent="Player"]
+emitting = false
+amount = 12
+lifetime = 0.3
+one_shot = true
+explosiveness = 0.6
+direction = Vector2(0, -1)
+spread = 45.0
+initial_velocity_min = 30.0
+initial_velocity_max = 80.0
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+color_ramp = SubResource("Gradient_land")
+
+[node name="ObstacleSpawner" type="Node2D" parent="." groups=["obstacle_spawner"]]
+script = ExtResource("2_spawner")
+
+[node name="ObstacleScene" type="PackedScene" parent="ObstacleSpawner"]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="ScoreLabel" type="Label" parent="UI"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 30.0
+offset_right = 150.0
+offset_bottom = 80.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 36
+text = "SCORE: 0"
+horizontal_alignment = 1
+
+[node name="GameOverLabel" type="Label" parent="UI"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -120.0
+offset_right = 250.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Instructions" type="Label" parent="UI"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -80.0
+offset_right = 200.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 20
+text = "SPACE to jump (double jump enabled)
+Avoid red obstacles"
+horizontal_alignment = 1
+
+[node name="ObstacleTemplate" type="Area2D" parent="." groups=["obstacles"]]
+position = Vector2(1400, 550)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObstacleTemplate"]
+shape = SubResource("RectangleShape2D_obstacle")
+
+[node name="ColorRect" type="ColorRect" parent="ObstacleTemplate"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -40.0
+offset_right = 30.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.9, 0.2, 0.2, 1)
