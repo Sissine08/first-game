@@ -1,8 +1,7 @@
 # First Game
 
-**Working Title:** TBD  
-**Genre:** TBD — Decision needed  
-**Engine:** Godot (recommended) / Unity (alternative)  
+**Engine:** Godot 4.x  
+**Language:** GDScript  
 **Goal:** Ship MVP in 30 days. Iterate or kill. No perfectionism.
 
 ---
@@ -10,17 +9,16 @@
 ## The Standard
 
 This is not a side project. This is the foundation of Domain 3 (Games/Coding).  
-**Greatness is the standard.** Mediocrity gets deleted. Half-effort is betrayal.
+**Greatness is the damn standard.** Mediocrity gets deleted. Half-effort is betrayal.
 
 ---
 
 ## Quick Start
 
-1. Install Godot 4.x: https://godotengine.org/
-2. Open this folder as project
-3. Start with `prototypes/` — test mechanics fast
-4. Graduate working code to `src/`
-5. Ship.
+1. **Install Godot 4.x:** https://godotengine.org/download
+2. **Open this folder** as project in Godot
+3. **Run the prototype:** Press F5 or click "Play"
+4. **Iterate:** See roadmap.md for milestones
 
 ---
 
@@ -29,13 +27,14 @@ This is not a side project. This is the foundation of Domain 3 (Games/Coding).
 ```
 first-game/
 ├── README.md              # This file
+├── project.godot          # Godot project settings
 ├── docs/
 │   ├── design.md          # Core mechanics, loop, win condition
 │   ├── roadmap.md         # MVP → v1.0 milestones  
 │   └── decisions.md       # Why we chose what we chose
-├── src/                   # Production code
+├── src/                   # Production code (scenes, scripts)
 ├── assets/                # Sprites, audio, fonts
-├── prototypes/            # Quick experiments
+├── prototypes/            # Quick experiments (one folder per prototype)
 └── builds/                # Export targets
 ```
 
@@ -46,41 +45,25 @@ first-game/
 | Milestone | Status | Date |
 |-----------|--------|------|
 | Repo created | ✅ DONE | Today |
-| Engine decision | 🟡 PENDING | Need nod |
-| First prototype | ⚪ NOT STARTED | Blocked on engine |
-| MVP scope defined | ⚪ NOT STARTED | Blocked on genre |
+| Engine selected | ✅ GODOT | Today |
+| Godot installed | 🟡 PENDING | Your move |
+| First prototype | ⚪ NOT STARTED | Blocked on install |
+| MVP scope defined | ⚪ NOT STARTED | Blocked on prototype |
 
 ---
 
-## Engine Decision — NOD REQUIRED
+## Genre Decision — NEXT
 
-**Option A: GODOT**  
-- Free, open-source, lightweight  
-- GDScript (Python-like) — fast to learn  
-- Perfect for 2D, good for 3D  
-- Export to web/mobile/desktop free  
-- **BEST FOR:** Shipping fast, learning, 2D focus
+Now that engine is locked, we need the **core mechanic**. NOD one:
 
-**Option B: UNITY**  
-- Industry standard, massive ecosystem  
-- C# — transferable skill  
-- Better for complex 3D, physics-heavy games  
-- Free until $200k revenue, then royalties  
-- **BEST FOR:** Scale, 3D, long-term career skill
+**A) PLATFORMER** — Jump, run, simple levels. Classic, proven, fast to prototype.  
+**B) PUZZLE** — One mechanic, deep interactions. Brain teaser, high retention.  
+**C) ENDLESS RUNNER** — Auto-scroll, dodge obstacles. Mobile-friendly, arcade feel.  
+**D) NARRATIVE/CHOICE** — Story-driven, dialogue choices. Leverages your novelist skill.
 
-**RECOMMENDATION:** Godot. You need velocity, not complexity. Ship one game, then decide if Unity is worth the overhead.
+**My recommendation: A or C.** Both are "feel" games — you know in 5 seconds if they're fun. No art required for prototypes.
 
-**NOD A or B. Then we prototype.**
-
----
-
-## Next Actions (Priority Order)
-
-1. **NOD engine choice** — Unblocks all downstream work
-2. **Define genre/mechanic** — What exists in 30 seconds of gameplay?
-3. **First prototype** — One mechanic, one screen, no art
-4. **Iterate or pivot** — 3 prototypes, pick winner
-5. **MVP scope lock** — Feature freeze, ship date set
+**NOD A/B/C/D. Then we build the first scene.**
 
 ---
 
@@ -91,16 +74,14 @@ first-game/
 - **Metaverse tie-in:** Web export → Spatial/Decentraland integration?
 - **Fitness gamification:** Daily workout = in-game reward?
 
-*Ideas documented in `docs/synergies.md` when ready.*
-
 ---
 
 ## Streak Tracker
 
 ```
-🎮 GAME DEV STREAK: Day 1
-🎯 Current: Repo initialized
-📦 Next: Engine installed + first scene
+🎮 GAME DEV STREAK: Day 1 ✅
+🎯 Current: Repo + Godot selected
+📦 Next: Godot installed + first scene running
 🔥 Daily commit required: YES
 ```
 
@@ -109,4 +90,4 @@ first-game/
 ---
 
 *Last updated: NAPOLEON*  
-*Standard: Greatness.*
+*Standard: Greatness is the damn standard.*
